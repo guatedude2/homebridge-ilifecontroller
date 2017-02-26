@@ -1,0 +1,37 @@
+{
+  "name": "homebridge-ilifecontroller",
+  "version": "0.0.1",
+  "description": "Plugin for iLife Vacuum Controller to use with Homebridge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://guatedude@github.com/guatedude/homebridge-ilifecontroller.git"
+  },
+  "keywords": [
+    "homekit",
+    "homebridge",
+    "ilife",
+    "controller",
+    "arduino",
+    "vacuum",
+    "robot",
+    "apple",
+	  "homebridge-plugin"
+  ],
+  "author": "Alejandro Gonzalez Sole",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guatedude/homebridge-ilifecontroller/issues"
+  },
+  "homepage": "https://github.com/guatedude/homebridge-ilifecontroller",
+  "engines": {
+    "node": ">=0.12.0",
+    "homebridge": ">=0.2.0"
+  },
+  "dependencies": {
+    "superagent": "^1.6.1"
+  }
+}
