@@ -23,6 +23,7 @@ function ILifeController(log, config) {
 	this.ip_address = config.ip_address;
 	this.username = config.username;
 	this.password = config.password;
+	this.credentials = this.username && this.password ? that.username+":"+that.password+"@" : "";
 	this.dock_on_stop = (typeof config.dock_on_stop === 'undefined' || config.dock_on_stop === "true");
 
 	this.informationService = new Service.AccessoryInformation();
@@ -38,8 +39,7 @@ function ILifeController(log, config) {
 var getSWVersion = function() {
 	var that = this;
 	//		that.informationService.setCharacteristic(Characteristic.SerialNumber, "Loading!");
-	var credentials = this.username && this.password ? that.username+":"+that.password+"@" : "";
-	superagent.get("http://"+credentials+that.ip_address+"/api/info").timeout(60000).end(function(error, response) {
+	superagent.get("http://"+his.credentials+that.ip_address+"/api/info").timeout(60000).end(function(error, response) {
 		if (error) {
 			that.log("Could not load info: %s", error.message);
 			//				that.informationService.setCharacteristic(Characteristic.SerialNumber, "Unknown!");
@@ -55,7 +55,7 @@ ILifeController.prototype = {
 	setPowerState: function(powerOn, callback) {
 		if (powerOn) {
 			this.log(this.name + ": Start cleaning");
-			superagent.post("http://"+credentials+that.ip_address + "/api/clean").end(function(error, response) {
+			superagent.post("http://"+his.credentials+that.ip_address + "/api/clean").end(function(error, response) {
 				if (error) {
 					this.log("Could not send clean command to iLife Controller: %s", error.message);
 					callback(error);
@@ -68,7 +68,7 @@ ILifeController.prototype = {
 
 			if (!this.dock_on_stop){
 
-				superagent.get("http://"+credentials+that.ip_address + "/api/status").end(function(error, response) {
+				superagent.get("http://"+his.credentials+that.ip_address + "/api/status").end(function(error, response) {
 					if (error) {
 						that.log("Could not send request status of iLife Controller: %s", error.message);
 						callback(error);
@@ -93,7 +93,7 @@ ILifeController.prototype = {
 				});
 			}else {
 				this.log(this.name + ": Start docking");
-				superagent.post("http://"+credentials+that.ip_address + "/api/dock").end(function(error, response) {
+				superagent.post("http://"+his.credentials+that.ip_address + "/api/dock").end(function(error, response) {
 					if (error) {
 						this.log("Could not send clean command to iLife Controller: %s", error.message);
 						callback(error);
@@ -106,7 +106,7 @@ ILifeController.prototype = {
 	},
 
 	getPowerState: function(callback) {
-		var url = "http://"+credentials+that.ip_address + "/api/status";
+		var url = "http://"+his.credentials+that.ip_address + "/api/status";
 
 		superagent.get(url).end(function(error, response) {
 			if (error) {
@@ -121,7 +121,7 @@ ILifeController.prototype = {
 
 	identify: function(callback) {
 		this.log("Identify requested!");
-		superagent.get("http://"+credentials+that.ip_address + "/api/info").end(function(error, response) {
+		superagent.get("http://"+his.credentials+that.ip_address + "/api/info").end(function(error, response) {
 			if (error) {
 				this.log("Could not send command to iLife Controller: %s", error.message);
 				callback(error);
