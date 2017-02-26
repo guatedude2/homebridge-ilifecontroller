@@ -114,7 +114,7 @@ ILifeController.prototype = {
 			} else {
 				var tcObj = JSON.parse(response.text);
 
-				callback(null, tcObj.status.cleaning === "1");
+				callback(null, tcObj.cleaning === "1");
 			}
 		});
 	},
