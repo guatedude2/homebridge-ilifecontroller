@@ -12,7 +12,7 @@ var Characteristic = null;
 function init(homebridge) {
 	Service = homebridge.hap.Service;
 	Characteristic = homebridge.hap.Characteristic;
-	homebridge.registerAccessory('homebridge-ilifecontroller', 'iLife Vacuum', ILifeController);
+	homebridge.registerAccessory('homebridge-ilifecontroller', 'iLifeController', ILifeController);
 }
 
 function ILifeController(log, config) {

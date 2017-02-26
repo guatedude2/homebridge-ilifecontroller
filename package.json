@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://guatedude@github.com/guatedude/homebridge-ilifecontroller.git"
+    "url": "https://guatedude2@github.com/guatedude2/homebridge-ilifecontroller.git"
   },
   "keywords": [
     "homekit",
@@ -24,9 +24,9 @@
   "author": "Alejandro Gonzalez Sole",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/guatedude/homebridge-ilifecontroller/issues"
+    "url": "https://github.com/guatedude2/homebridge-ilifecontroller/issues"
   },
-  "homepage": "https://github.com/guatedude/homebridge-ilifecontroller",
+  "homepage": "https://github.com/guatedude2/homebridge-ilifecontroller",
   "engines": {
     "node": ">=0.12.0",
     "homebridge": ">=0.2.0"
