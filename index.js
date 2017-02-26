@@ -55,7 +55,7 @@ ILifeController.prototype = {
 	setPowerState: function(powerOn, callback) {
 		if (powerOn) {
 			this.log(this.name + ": Start cleaning");
-			superagent.post("http://"+this.credentials+that.ip_address + "/api/clean").end(function(error, response) {
+			superagent.post("http://"+this.credentials+this.ip_address + "/api/clean").end(function(error, response) {
 				if (error) {
 					this.log("Could not send clean command to iLife Controller: %s", error.message);
 					callback(error);
@@ -93,7 +93,7 @@ ILifeController.prototype = {
 				});
 			}else {
 				this.log(this.name + ": Start docking");
-				superagent.post("http://"+thatcredentials+that.ip_address + "/api/dock").end(function(error, response) {
+				superagent.post("http://"+that.credentials+that.ip_address + "/api/dock").end(function(error, response) {
 					if (error) {
 						this.log("Could not send clean command to iLife Controller: %s", error.message);
 						callback(error);
