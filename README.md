@@ -2,7 +2,7 @@
 
 Homebridge is a lightweight NodeJS server you can run on your home network that emulates the iOS HomeKit API. [Learn more about Homebridge](https://github.com/nfarina/homebridge)
 
-This is a plugin to control your iLife Controller via HomeKit. [Learn more about iLife Robotic Vacuums.](http://ilferobot.com)
+This is a plugin to control your iLife Controller via HomeKit. [Learn more about iLife Robotic Vacuums.](http://iliferobot.com)
 Since Siri supports devices added through HomeKit, this means that with Homebridge you can ask Siri to control your Thinking Cleaner! For example you can say _`Siri, turn Dusty on.`_ and your Roomba will start cleaning!
 
 Or you can use a Homekit app for iOS to create scenes and start claning your house when you say:
